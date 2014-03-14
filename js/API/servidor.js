@@ -3,20 +3,15 @@ function enviarDatos(nom,mail,tel,foto){
 	$.ajax({
 		type: "POST",
 		url: "http://itslmoviles.260mb.net/procesar.php",
-		data: "Nom="+nom+"&Mail="+mail+"&Telef="+tel,
-		success: onSuccess
+		data: "Nom="+nom+"&Mail="+mail+"&Telef="+tel
 	}).done(function(msg){
 		if(msg==1){
 			$('.title div').text('Subiendo Foto');
-			//subirFoto(foto);	
+			subirFoto(foto);	
 		}else{
 			navigator.notification.alert("Hubo un error en el registro",null,"Error","Aceptar");
 		}
 	});
-	function onSuccess(data)
-            {            
-	    alert(data);
-            }
 }
 
 function enviarReservas(th,pr,ha,di){
